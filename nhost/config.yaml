@@ -1,0 +1,83 @@
+metadata_directory: metadata
+services:
+  api:
+    port: 4000
+  hasura:
+    port: 8080
+    console_port: 9695
+    version: v1.3.3
+    image: hasura/graphql-engine
+    admin_secret: hasura-admin-secret
+  hasura_backend_plus:
+    port: 9001
+    version: v2.6.1
+  minio:
+    port: 9000
+    version: latest
+  postgres:
+    port: 5432
+    version: 12
+    user: postgres
+    password: postgres
+authentication:
+  endpoints:
+    provider_failure_redirect: http://localhost:3000/login-fail
+    provider_success_redirect: http://localhost:3000
+  providers:
+    apple:
+      client_id: ""
+      enabled: false
+      key_id: ""
+      private_key: ""
+      scope: name,email
+      team_id: ""
+    bitbucket:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+    facebook:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: email,photos,displayName
+    github:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: user:email
+      token_url: ""
+      user_profile_url: ""
+    gitlab:
+      base_url: ""
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: read_user
+    google:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: email,profile
+    linkedin:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: r_emailaddress,r_liteprofile
+    spotify:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: user-read-email,user-read-private
+    twitter:
+      consumer_key: ""
+      consumer_secret: ""
+      enabled: false
+    windows_live:
+      client_id: ""
+      client_secret: ""
+      enabled: false
+      scope: wl.basic,wl.emails,wl.contacts_emails
+version: 2
+environment:
+  env_file: C:\Users\akd\workspace\nhost-my-test-project\.env.development
+  hasura_cli_version: v2.0.0-alpha.11
